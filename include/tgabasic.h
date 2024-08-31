@@ -3,7 +3,17 @@
 
 #pragma once
 
+#include <utility>
+#include "geometry.h"
+
 namespace tgabasic {
+
+struct Point : public std::pair<int, int> {
+    using std::pair<int, int>::pair;
+    int& x = this->first;
+    int& y = this->second;
+
+};
 
 #pragma pack(push,1)
     typedef struct {
@@ -49,6 +59,10 @@ namespace tgabasic {
         int width;
         int bytespp;
     };
+
+    void drawLine(Vec2d p1, Vec2d p2, TGAImage& image, TGAColor c);
+    void drawTriangle(Vec2d p1, Vec2d p2, Vec2d p3, TGAImage& image, TGAColor c);
+    
 }
 
 #endif // __TGABASIC__
