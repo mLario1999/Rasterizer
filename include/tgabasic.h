@@ -8,11 +8,20 @@
 
 namespace tgabasic {
 
-struct Point : public std::pair<int, int> {
-    using std::pair<int, int>::pair;
-    int& x = this->first;
-    int& y = this->second;
+enum RASMETHOD {
+    WIRE = 1 << 0,    
+    FILL = 1 << 1,    
+    CULL = 1 << 2
+};
 
+struct TGAColor;
+
+    struct ColorPalette {
+    static const TGAColor RED;
+    static const TGAColor GREEN;
+    static const TGAColor BLUE;
+    static const TGAColor WHITE;
+    static const TGAColor BLACK;
 };
 
 #pragma pack(push,1)
@@ -60,9 +69,11 @@ struct Point : public std::pair<int, int> {
         int bytespp;
     };
 
-    void drawLine(Vec2d p1, Vec2d p2, TGAImage& image, TGAColor c);
-    void drawTriangle(Vec2d p1, Vec2d p2, Vec2d p3, TGAImage& image, TGAColor c);
+    void drawLine(Vec2d p1, Vec2d p2, TGAImage& image, TGAColor color);
+    void drawTriangle(const Vec2d a, const Vec2d b, const Vec2d c, TGAImage &image, const TGAColor color, const RASMETHOD methods);
     
+
+
 }
 
 #endif // __TGABASIC__

@@ -3,6 +3,12 @@
 #include <fstream>
 #include <iostream>
 
+const tgabasic::TGAColor tgabasic::ColorPalette::RED(255, 0, 0, 255);
+const tgabasic::TGAColor tgabasic::ColorPalette::GREEN(0, 255, 0, 255);
+const tgabasic::TGAColor tgabasic::ColorPalette::BLUE(0, 0, 255, 255);
+const tgabasic::TGAColor tgabasic::ColorPalette::WHITE(255, 255, 255, 255);
+const tgabasic::TGAColor tgabasic::ColorPalette::BLACK(0, 0, 0, 255);
+
 tgabasic::TGAImage::TGAImage() 
     : data(nullptr), width(0), height(0), bytespp(0) {}
 
@@ -50,4 +56,7 @@ bool tgabasic::TGAImage::writeTGAFile(const char *dst) {
     }
     return true;
 }
+
+
+
 
