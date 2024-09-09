@@ -57,6 +57,32 @@ bool tgabasic::TGAImage::writeTGAFile(const char *dst) {
     return true;
 }
 
+void tgabasic::TGAImage::flipVertically() {
+    int start = 0;
+    int end = height - 1; 
+    int row_size = width * bytespp;
 
+    while (start < end) {
+        int start_index = start * row_size;
+        int end_index = end * row_size;
+
+        unsigned char* temp = new unsigned char[row_size];
+
+        // Swap the rows
+        memcpy(temp, data + start_index, row_size);
+        memcpy(data + start_index, data + end_index, row_size);
+        memcpy(data + end_index, temp, row_size);
+
+        delete[] temp;
+
+        start++;
+        end--;
+    }
+}
+
+unsigned char *tgabasic::TGAImage::getData()
+{
+    return data;
+}
 
 

@@ -3,7 +3,8 @@
 using namespace tgabasic;
 
 int main() {
-    TGAImage image(1920,1080, 3);
-    drawTriangle({960, 1080}, {1920, 0}, {0,0}, image,  ColorPalette::RED, FILL);
+    TGAImage image(376,238, 3);
+    drawTriangle({0, 0}, {3, 0}, {8,8}, image,  ColorPalette::RED, FILL);
+    image.flipVertically();
     image.writeTGAFile("output.tga");
 }
