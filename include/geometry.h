@@ -22,4 +22,24 @@ struct Vec2d {
     }
 };
 
+struct Vec3d {
+    double x;
+    double y;
+    double z;
+    Vec3d() : x(0), y(0), z(0) {}
+    Vec3d(double x, double y, double z) : x(x), y(y), z(z) {}
+    Vec3d operator+(const Vec3d& other) const {
+        return Vec3d(x+other.x, y+other.y, z+other.z);
+    }
+    Vec3d operator-(const Vec3d& other) const {
+        return Vec3d(x-other.x, y-other.y, z-other.z);
+    }
+    Vec3d operator*(const int scalar) const {
+        return Vec3d(x*scalar, y*scalar, z*scalar);
+    }
+    Vec3d operator/(const int scalar) const {
+        return Vec3d(x/scalar, y/scalar, z/scalar);
+    }
+};
+
 #endif //__GEOMETRY_H__

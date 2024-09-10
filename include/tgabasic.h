@@ -64,6 +64,8 @@ struct TGAColor;
         bool writeTGAFile(const char* dst);
         void flipVertically();
         unsigned char* getData();
+        int getWidth();
+        int getHeight();
     protected:
         unsigned char* data;
         int height;
@@ -72,7 +74,7 @@ struct TGAColor;
     };
 
     void drawLine(Vec2d p1, Vec2d p2, TGAImage& image, TGAColor color);
-    void drawTriangle(const Vec2d a, const Vec2d b, const Vec2d c, TGAImage &image, const TGAColor color, const RASMETHOD methods);
+    void drawTriangle(Vec3d a, Vec3d b, Vec3d c, TGAImage &image, const TGAColor color, const RASMETHOD methods, int* z_buffer);
 }
 
 #endif // __TGABASIC__

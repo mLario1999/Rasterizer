@@ -85,4 +85,12 @@ unsigned char *tgabasic::TGAImage::getData()
     return data;
 }
 
+int tgabasic::TGAImage::getWidth()
+{
+    return width;
+}
 
+int tgabasic::TGAImage::getHeight()
+{
+    return height;
+}
