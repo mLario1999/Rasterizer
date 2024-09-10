@@ -81,4 +81,3 @@ void tgabasic::drawTriangle(Vec2d a, Vec2d b, Vec2d c, TGAImage &image, const TG
         }
     }
 }
-
