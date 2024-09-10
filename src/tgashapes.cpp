@@ -51,7 +51,7 @@ std::array<Vec2d, 2> getBoundingBox(const Vec2d& p1, const Vec2d& p2, const Vec2
 void tgabasic::drawTriangle(Vec2d a, Vec2d b, Vec2d c, TGAImage &image, const TGAColor color, const RASMETHOD methods)
 {
     double area = edgeFunc(a, b, c);
-    if (area < 0 && (methods & CULL)) return; // triangle is backwards facing
+    if (area < 0 && (methods & CULL)) return; // triangle is backwards facing and culled
 
     if (methods & WIRE) {
         drawLine(a, b, image, color);
